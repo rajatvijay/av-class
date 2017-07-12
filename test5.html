@@ -1,0 +1,92 @@
+<html>
+
+<head>
+	<style type="text/css">
+		li {
+			cursor: hand;
+		}
+	</style>
+</head>
+
+<body>
+
+<li id="song1">Song1</li>
+<li id="song2">Song2</li>
+<li id="song3">Song3</li>
+<li id="song4">Song4</li>
+
+<audio controls=""></audio>
+
+
+<script src="jquery.js"></script>
+<script>
+	var songNames = ['song1', 'song2', 'song3', 'song4']
+	var fileNames = ['song1.mp3', 'song2.mp3', 'song3.mp3', 'song4.mp3']
+
+	function toggleSong() {
+		var song = document.querySelector('audio'); 
+		if(song.paused) {
+			song.play();	
+		} else {
+			song.pause();
+		}
+	}
+
+	// $('#song1').on('click', function(event){
+	// 	var song = document.querySelector('audio');
+	// 	var currentSong = song.src;
+
+	// 	if (currentSong.search(fileNames[0]) != -1) {
+	// 		toggleSong();
+	// 	} else {
+	// 		song.src="song1.mp3"; 
+	// 		song.play();	
+	// 	}
+
+	// });
+	
+	// $('#song2').on('click', function(event){
+	// 	var song = document.querySelector('audio');
+	// 	var currentSong = song.src;
+
+	// 	if (currentSong.search(fileNames[1]) != -1) {
+	// 		toggleSong();
+	// 	} else {
+	// 		song.src="song2.mp3"; 
+	// 		song.play();	
+	// 	}
+	// });
+
+	function addSongNameClickEvent(songName, id) {
+		var id = '#song' + id;
+		
+		$(id).on('click', function(event){
+		
+			var song = document.querySelector('audio');
+			var currentSong = song.src;
+
+			if (currentSong.search(songName) != -1) {
+				toggleSong();
+			} else {
+				song.src = songName; 
+				song.play();	
+			}
+
+		});
+	}
+
+	// addSongNameClickEvent(fileNames[0], 1);
+	// addSongNameClickEvent(fileNames[1], 2);
+	// addSongNameClickEvent(fileNames[2], 3);
+	// addSongNameClickEvent(fileNames[3], 4);
+
+
+	for (var i = 0; i < fileNames.length; i++) {
+		addSongNameClickEvent(fileNames[i], i + 1);	
+	}
+	
+</script>
+
+</body>
+
+</html>

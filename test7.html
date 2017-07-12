@@ -1,0 +1,115 @@
+<html>
+
+<head>
+	<style type="text/css">
+		td {
+			cursor: hand;
+		}
+	</style>
+</head>
+
+<body>
+
+<table>
+	<tr>
+		<td>Title</td>
+		<td>Artist</td>
+		<td>Album</td>
+		<td>Duration</td>
+	</tr>
+	<tr id='song1'>
+		<td class="song-name"></td>
+		<td class="song-artist"></td>
+		<td class="song-album"></td>
+		<td class="song-duration"></td>
+	</tr>
+	<tr id='song2'>
+		<td class="song-name"></td>
+		<td class="song-artist"></td>
+		<td class="song-album"></td>
+		<td class="song-duration"></td>
+	</tr>
+	<tr id='song3'>
+		<td class="song-name"></td>
+		<td class="song-artist"></td>
+		<td class="song-album"></td>
+		<td class="song-duration"></td>
+	</tr>
+	<tr id='song4'>
+		<td class="song-name"></td>
+		<td class="song-artist"></td>
+		<td class="song-album"></td>
+		<td class="song-duration"></td>
+	</tr>
+</table>
+
+<audio controls=""></audio>
+
+
+<script src="jquery.js"></script>
+<script>
+	var songNames = ['song1', 'song2', 'song3', 'song4']
+	var fileNames = ['song1.mp3', 'song2.mp3', 'song3.mp3', 'song4.mp3']
+	var artistNames = ['Artist#1', 'Artist#2', 'Artist#3', 'Artist#4']
+	var albumNames = ['Album#1', 'Album#2', 'Album#3', 'Album#4']
+	var durations = ['1:30', '2:30', '6:20', '8:40'];
+
+	var song1 = {
+		'name': 'song1',
+		'artist': 'Rajat Vijay',
+		'album': 'ablum#1',
+		'duration': '5:30' 
+	}
+
+
+	window.onload = function (){
+		for(var i =0; i < songNames.length;i++) {
+	        var name = '#song' + (i+1);
+	        var song = $(name);
+	        song.find('.song-name').text(songNames[i]);
+	        song.find('.song-artist').text(artistNames[i]);
+	        song.find('.song-album').text(albumNames[i]);
+	        song.find('.song-duration').text(durations[i]);
+	    }
+
+	}
+
+
+	function toggleSong() {
+		var song = document.querySelector('audio'); 
+		if(song.paused) {
+			song.play();	
+		} else {
+			song.pause();
+		}
+	}
+
+	
+	function addSongNameClickEvent(songName, id) {
+		var id = '#song' + id;
+		
+		$(id).on('click', function(event){
+		
+			var song = document.querySelector('audio');
+			var currentSong = song.src;
+
+			if (currentSong.search(songName) != -1) {
+				toggleSong();
+			} else {
+				song.src = songName; 
+				song.play();	
+			}
+
+		});
+	}
+
+
+	for (var i = 0; i < fileNames.length; i++) {
+		addSongNameClickEvent(fileNames[i], i + 1);	
+	}
+	
+</script>
+
+</body>
+
+</html>

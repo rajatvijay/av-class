@@ -1,0 +1,135 @@
+<html>
+
+<head>
+	<style type="text/css">
+		td {
+			cursor: hand;
+		}
+	</style>
+</head>
+
+<body>
+
+<table>
+	<tr>
+		<td>Title</td>
+		<td>Artist</td>
+		<td>Album</td>
+		<td>Duration</td>
+	</tr>
+	<tr id='song1'>
+		<td class="song-name"></td>
+		<td class="song-artist"></td>
+		<td class="song-album"></td>
+		<td class="song-duration"></td>
+	</tr>
+	<tr id='song2'>
+		<td class="song-name"></td>
+		<td class="song-artist"></td>
+		<td class="song-album"></td>
+		<td class="song-duration"></td>
+	</tr>
+	<tr id='song3'>
+		<td class="song-name"></td>
+		<td class="song-artist"></td>
+		<td class="song-album"></td>
+		<td class="song-duration"></td>
+	</tr>
+	<tr id='song4'>
+		<td class="song-name"></td>
+		<td class="song-artist"></td>
+		<td class="song-album"></td>
+		<td class="song-duration"></td>
+	</tr>
+</table>
+
+<audio controls=""></audio>
+
+
+<script src="jquery.js"></script>
+<script>
+	var songs = [
+	{
+        'name': 'Badri Ki Dulhania (Title Track)',
+        'artist': 'Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi',
+        'album': 'Badrinath ki Dulhania',
+        'duration': '2:56',
+       'fileName': 'song1.mp3'
+    },
+    {
+        'name': 'Humma Song',
+        'artist': 'Badshah, Jubin Nautiyal, Shashaa Tirupati',
+        'album': 'Ok Jaanu',
+        'duration': '3:15',
+        'fileName': 'song2.mp3'
+    },
+    {
+        'name': 'Nashe Si Chadh Gayi',
+        'artist': 'Arijit Singh',
+        'album': 'Befikre',
+        'duration': '2:34',
+        'fileName': 'song3.mp3'
+    },
+    {
+        'name': 'The Breakup Song',
+        'artist': 'Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi',
+        'album': 'Ae Dil Hai Mushkil',
+        'duration': '2:29',
+        'fileName': 'song4.mp3'
+    }
+    ]
+
+    // songs is an array of objects
+
+	window.onload = function (){
+	 	for(var i = 0; i < songs.length; i++) {
+	        var obj = songs[i];
+	        var name = '#song' + (i+1);
+	        var song = $(name);
+	        song.find('.song-name').text(obj.name);
+	        song.find('.song-artist').text(obj.artist);
+	        song.find('.song-album').text(obj.album);
+	        song.find('.song-length').text(obj.duration);
+	        addSongNameClickEvent(obj.fileName, i + 1);
+    	}
+
+	}
+
+
+	function toggleSong() {
+		var song = document.querySelector('audio'); 
+		if(song.paused) {
+			song.play();	
+		} else {
+			song.pause();
+		}
+	}
+
+	function addSongNameClickEvent(songName, id) {
+		var id = '#song' + id;
+		
+		$(id).on('click', function(event){
+		
+			var song = document.querySelector('audio');
+			var currentSong = song.src;
+
+			if (currentSong.search(songName) != -1) {
+				toggleSong();
+			} else {
+				song.src = songName; 
+				song.play();	
+			}
+
+		});
+	}
+
+
+	// for (var i = 0; i < fileNames.length; i++) {
+	// 	addSongNameClickEvent(fileNames[i], i + 1);	
+	// }
+	
+</script>
+
+</body>
+
+</html>

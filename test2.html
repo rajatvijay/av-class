@@ -1,0 +1,48 @@
+<html>
+
+<head>
+	<style type="text/css">
+		li {
+			cursor: hand;
+		}
+	</style>
+</head>
+
+<body>
+
+<li id="song1">Song1</li>
+<li id="song2">Song2</li>
+
+<audio controls=""></audio>
+
+
+<script src="jquery.js"></script>
+<script>
+	var songNames = ['song1', 'song2']
+	var fileNames = ['song1.mp3', 'song2.mp3']
+
+	function toggleSong() {
+		var song = document.querySelector('audio'); 
+		if(song.paused) {
+			song.play();	
+		} else {
+			song.pause();
+		}
+	}
+	$('#song1').on('click', function(event){
+		var song = document.querySelector('audio'); 
+		song.src= fileNames[0]; 
+		console.log('IS the song paused?' + song.paused);
+		toggleSong();
+	});
+	$('#song2').on('click', function(event){
+		var song = document.querySelector('audio'); 
+		console.log('IS the song paused?' + song.paused);
+		song.src = fileNames[1]; 
+		toggleSong();
+	});
+</script>
+
+</body>
+
+</html>
