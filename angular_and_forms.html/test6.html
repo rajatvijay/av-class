@@ -1,0 +1,29 @@
+<html ng-app>
+
+	<head>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<style type="text/css">
+			input.ng-invalid {
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<form name="loginForm">
+			<label for="my-email">Please enter you email</label>
+			<input id="my-email" ng-model="user.email" 
+			type="email" name="myEmail" required>
+
+			<label for="my-pass">Please enter your password</label>
+			<input id="my-pass" ng-model="user.pass" 
+			type="text" name="myPass" required minlength="6">
+
+			
+			<input type="submit" name="submit">
+		</form>
+
+	</body>
+
+</html>

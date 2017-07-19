@@ -1,0 +1,6 @@
+Humme kya faayda ho raha hai form tag se?
+
+
+
+<div ng-if="loginForm.myEmail.$error.required">This is Required</div>
+<div ng-if="loginForm.myEmail.$error.email">This is not a valid email</div>

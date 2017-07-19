@@ -141,6 +141,12 @@
 	        addSongNameClickEvent(obj, i + 1);
     	}
 
+    	$('body').on('keypress', function(event){
+			if (event.keyCode == 32 && event.target.tagName != 'INPUT' ) {
+				toggleSong();
+			}
+		});
+
     	$('#songs').DataTable({
     		paging: false,
     	});
@@ -172,7 +178,7 @@
 				toggleSong();
 			} else {
 				changeCurrentSongDetails(songObj);
-				song.src = fileName; 
+				song.src = "../" + fileName; 
 				song.play();	
 			}
 
@@ -182,7 +188,7 @@
 	}
 
 	function changeCurrentSongDetails(songObj) {
-		var songPath = 'img/' + songObj.image;
+		var songPath = '../img/' + songObj.image;
 	    $('.current-song-image').attr('src', songPath)
 	    $('.current-song-name').text(songObj.name)
 	    $('.current-song-album').text(songObj.album)
