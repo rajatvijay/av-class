@@ -1,0 +1,30 @@
+<html ng-app="testApp">
+
+<head>
+	<script type="text/javascript" src="../angular.min.js"></script>
+	<script type="text/javascript" src="angular_advanced.js"></script>
+</head>
+
+<body>
+
+	<div></div>
+	<div ng-controller="mainController">
+		<input type="text" ng-model="neelam.nikita">
+		<button ng-click="addEngineer(neelam.nikita)">
+			Add
+		</button>
+		<h1>Engineers</h1>
+		<ul>
+			<li ng-repeat="engineer in engineers">
+				{{ engineer }}
+				<button ng-click="deleteEngineer(engineer)">	Delete
+				</button>
+			</li>
+		</ul>
+	</div>
+	<div></div>
+	<div></div>
+
+</body>
+
+</html>
