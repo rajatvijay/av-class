@@ -17,7 +17,8 @@
 		<ul>
 			<li ng-repeat="engineer in engineers">
 				{{ engineer }}
-				<button ng-click="deleteEngineer(engineer)">	Delete
+				<button ng-click="deleteEngineer($index)">	
+					Delete
 				</button>
 			</li>
 		</ul>

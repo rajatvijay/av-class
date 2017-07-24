@@ -1,0 +1,6 @@
+<div ng-controller="mainController">
+	<a style="display: block" ng-repeat="engineer in engineers" 
+	   href="#!/engineer/{{ $index }}">
+		{{ engineer.name }}
+	</a>
+</div>

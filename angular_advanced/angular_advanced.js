@@ -9,8 +9,7 @@ testApp.controller('mainController', function($scope) {
 		$scope.engineers.push(name);
 	}
 
-	$scope.deleteEngineer = function(name) {
-		var index = $scope.engineers.indexOf(name);
+	$scope.deleteEngineer = function(index) {
 		$scope.engineers.splice(index, 1);
 	}
 

@@ -1,0 +1,37 @@
+1. Make a folder in your home
+2. Initialize a git repo
+3. Create a github repository
+4. Add remote
+5. MAke a HTML Tiltle index.html
+6. Make the necssary structure of HTML in index.html
+7. Include the angular framework
+8. Create an empty Javascript file named main.js
+9. Initialize the angular application named ngTodo
+10. Make a commit with message "Initialized Angular App"
+11. Make a controller (Head Of Department) named "mainController"
+12. Check if the controller is being called by opening the HTML file in your browser.
+13. If everything is working fine make a commit with message "Made a Controller" 
+14. Attach(Chipkao) a list of Todos to your model inside your controller
+  	//Structure for Todos Array
+15. Make sure your list of Todos contains atleast 5 Todos.
+16. Display those todosin your HTML using ng-repeat
+17. If everything is working fine make a commit with message "Todo's list is being displayed"
+18. While displaying the Todos in HTML the title should be in h2 tag and the details should be in a paragraph tag.
+19. Make a border around every Todo.
+20. Make a commit with message "Beautified"
+21. Make two input tags to let the user add Todos. The first input tag will have the title of the Todo and second will contain the details of the Todo.
+22. Make a button. When the user will click on this Todo, the Todo should be displayed.
+23. If everything is working fine make a commit with message "User can add a Todo"
+24. Add a delete button next to every Todo.
+25. If everything is working fine make a commit with message "User can delete a Todo"
+26. Use font awesome to show a "Dustbin" icon for the delete button
+27. Make a commit with message "Beautified"
+28. Make a search bar.
+29. If everything is working fine make a commit with message "Search Functionality Added"
+30. Push it to the repo.
+31. Fill the form given by Vishwa with these github repo link.
+32. Ping on whatsapp group with the message "I ng-nailed it!"
+
+Resources
+1. Notes on acadview.com
+2. https://github.com/rajatvijay/av-class/tree/master/angular_advanced
